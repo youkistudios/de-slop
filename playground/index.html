@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>de-slop playground</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23fbf8f2'/%3E%3Cpath d='M3 12.5h10M8 3.5v8' stroke='%237a2e24' stroke-width='1.4' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="playground.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <p class="kicker">de-slop</p>
+        <h1>Playground</h1>
+        <p class="lede">Structural tells from the skill, marked inline. Safe cuts are rewritten. Everything else is left for a human.</p>
+      </div>
+      <div class="scoreboard" aria-label="Tells per 100 words, before and after">
+        <div class="score-row">
+          <div>
+            <div class="score-num" id="score-before">0.0</div>
+            <div class="score-label">before</div>
+          </div>
+          <div class="score-arrow" aria-hidden="true">→</div>
+          <div>
+            <div class="score-num" id="score-after">0.0</div>
+            <div class="score-label">after</div>
+          </div>
+        </div>
+        <div class="score-unit">tells / 100 words</div>
+      </div>
+    </header>
+
+    <main class="panes">
+      <section aria-labelledby="draft-label">
+        <div class="pane-head">
+          <h2 id="draft-label">Draft</h2>
+          <button type="button" id="restore">Restore sample</button>
+        </div>
+        <ul class="legend">
+          <li><span class="swatch swatch-cut"></span> Cut</li>
+          <li><span class="swatch swatch-flag"></span> Left for a human</li>
+          <li><span class="swatch swatch-keep"></span> Inside the em-dash cap</li>
+        </ul>
+        <div class="editor">
+          <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+          <textarea id="draft" spellcheck="false" autocomplete="off" autocapitalize="off" aria-labelledby="draft-label" placeholder="Paste prose."></textarea>
+        </div>
+      </section>
+
+      <section aria-labelledby="clean-label">
+        <div class="pane-head">
+          <h2 id="clean-label">Cleaned</h2>
+          <button type="button" id="copy">Copy cleaned text</button>
+        </div>
+        <p class="hint">What a mechanical pass can do. Sand marks are still yours to judge.</p>
+        <div class="cleaned" id="cleaned" aria-labelledby="clean-label"></div>
+        <p class="score-detail" id="score-detail"></p>
+      </section>
+    </main>
+
+    <section class="audit-wrap" aria-labelledby="audit-label">
+      <div class="pane-head">
+        <h2 id="audit-label">Audit</h2>
+        <p class="audit-summary" id="audit-summary"></p>
+      </div>
+      <ul class="audit" id="audit"></ul>
+    </section>
+
+    <footer>
+      <p>A mechanical sketch of <code>skills/de-slop/SKILL.md</code>. It removes named patterns. It does not decide whether a draft was written by a model.</p>
+    </footer>
+  </div>
+  <div id="tooltip" role="tooltip" hidden></div>
+  <script src="playground.js"></script>
+</body>
+</html>

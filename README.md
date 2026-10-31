@@ -35,6 +35,17 @@ Start a new session, then say "de-slop this" with a draft.
 
 The skill is plain Markdown with no code and no external references beyond an optional house ruleset, so it is portable to any agent harness that reads Markdown skill files.
 
+## Playground
+
+A static page for the tells in `skills/de-slop/SKILL.md`. Paste a draft and each hit is marked inline, with a tooltip naming the pattern. The cleaned pane rewrites only mechanically safe cases. The audit lists what changed and what was flagged and left.
+
+No build step, no dependencies, no network, and no model call. Double-click `playground/index.html`, or open it from any static server. The page is plain files, so GitHub Pages can serve the `playground` directory as-is.
+
+```bash
+python3 -m http.server
+# then open http://localhost:8000/playground/
+```
+
 ## Repository map
 
 - `skills/de-slop/SKILL.md` — the skill.
